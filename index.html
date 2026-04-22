@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rosse Mary</title>
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-home">Rosse Mary</a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="skills.html">Skills</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="hero">
+    <div class="hero-center reveal">
+      <span class="label">Data Analyst &amp; Business Intelligence</span>
+      <h1>Data that<br><em>speaks.</em><br>Decisions that<br>follow.</h1>
+      <p class="hero-sub">
+        I’m learning to turn data into clear insights through dashboards and analysis.
+        I enjoy exploring data, building visualizations, and improving step by step.
+      </p>
+      <a  class="hero-cta">Projects</a>
+    </div>
+      <!-- CUADRADOS DECORATIVOS -->
+      <div class="hero-squares">
+        <span><img src="img/cuadro2.png" alt=""></span>
+        <span><img src="img/cuadro.jpg" alt=""></span>
+        <span><img src="img/cuadro3.jpg" alt=""></span>
+        <span><img src="img/cuadro4.jpg" alt=""></span>
+      </div>
+      <br><br>
+    <div class="hero-bottom reveal">
+      <div class="hero-stat">
+        <div class="stat-num">+10</div>
+        <div class="stat-label">Data projects</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">+2</div>
+        <div class="stat-label">Years</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Curiosity</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <small>© 2026 Rosse ✨</small>
+  <div class="footer-links">
+    <a href="mailto:rosmerymarcas@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/rossemarcas" target="_blank">LinkedIn</a>
+    <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+
+<script>
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = i * 0.12 + 's';
+    setTimeout(() => el.classList.add('visible'), 80 + i * 120);
+  });
+</script>
+</body>
+</html>

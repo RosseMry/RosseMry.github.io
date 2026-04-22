@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work — Tu Nombre</title>
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-home">Rosse Mary</a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="skills.html">Skills</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="work">
+
+    <div class="work-header reveal">
+      <div>
+        <span class="label">02 — Work</span>
+        <h2>Selected<br><em>projects.</em></h2>
+      </div>
+      <p>A selection of data analysis and 42 projects.</p>
+    </div>
+
+    <div class="project-list">
+
+      <div class="project-item reveal">
+        <div class="project-num">01</div>
+        <div class="project-content">
+          <span class="project-type">Business Intelligence</span>
+          <h3>Sales Performance Dashboard</h3>
+          <p>Interactive dashboard to track sales performance and key metrics.
+            <br> - KPIs such as revenue, growth, and performance indicators
+            <br> - Designed an interactive dashboard to support business understanding </p>
+          <div class="tools">
+            <span class="tool">Power BI</span>
+            <span class="tool">SQL Server</span>
+            <span class="tool">DAX</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+
+      <div class="project-item reveal">
+        <div class="project-num">02</div>
+        <div class="project-content">
+          <span class="project-type">Data Analysis Platform</span>
+          <h3>DataInsight AI — SaaS Data Tool</h3>
+          <p>Development of a SaaS platform to analyze CSV files and generate insights.
+            <br> - Performed exploratory data analysis (EDA) and trend detection
+            <br> - Developed a REST API and modular backend architecture
+          </p>
+          <div class="tools">
+            <span class="tool">Docker</span>
+            <span class="tool">React</span>
+            <span class="tool">Python</span>
+            <span class="tool">Pandas</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+
+      <div class="project-item reveal">
+        <div class="project-num">03</div>
+        <div class="project-content">
+          <span class="project-type">Automatization</span>
+          <h3>Executive Monthly Report</h3>
+          <p>Automatización completa del reporte ejecutivo mensual mediante Python
+             y Looker Studio. Proceso que tomaba 6 horas manuales ahora se genera
+             y distribuye automáticamente cada primero de mes.</p>
+          <div class="tools">
+            <span class="tool">Python</span>
+            <span class="tool">Looker Studio</span>
+            <span class="tool">Sheets API</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+
+      <div class="project-item reveal">
+        <div class="project-num">04</div>
+        <div class="project-content">
+          <span class="project-type">Full Stack Project</span>
+          <h3>Transcendence — Social Platform (École 42)</h3>
+          <p>A full-stack web application developed at École 42, inspired by social platforms and community-based systems. <br>
+            - Built a real-time chat system and user interaction features <br>
+            - Developed a social platform with user profiles and community structure </p>
+          <div class="tools">
+            <span class="tool">Go</span>
+            <span class="tool">Docker</span>
+            <span class="tool">React</span>
+            <span class="tool">PostgreSQL</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <small>© 2026 Rosse ✨</small>
+  <div class="footer-links">
+    <a href="mailto:rosmerymarcas@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/rossemarcas" target="_blank">LinkedIn</a>
+    <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

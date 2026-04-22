@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skills — Rosse Mary</title>
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-home">Rosse Mary</a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="skills.html" class="active">Skills</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="skills">
+
+    <div class="skills-header reveal">
+      <span class="label">03 — Skills</span>
+      <h2>Expertise<br><em>&amp; tools.</em></h2>
+    </div>
+
+    <div class="skill-blocks">
+
+      <div class="skill-block reveal">
+        <div class="skill-block-title">
+          <span class="num">01</span>
+          <h3>Data &amp; SQL</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <span class="skill-name">SQL</span>
+            <span class="skill-note">PostgreSQL, SQL Server</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Data Modeling</span>
+            <span class="skill-note">Star Schema</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-title">
+          <span class="num">02</span>
+          <h3>Data Visualization</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <span class="skill-name">Power BI</span>
+            <span class="skill-note">DAX, Data modeling, Dashboards</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Excel</span>
+            <span class="skill-note">Reporting, data analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-title">
+          <span class="num">03</span>
+          <h3>Programming</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <span class="skill-name">Python</span>
+            <span class="skill-note">Data analysis</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Pandas</span>
+            <span class="skill-note">Data manipulation</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Git</span>
+            <span class="skill-note">Version control and collaboration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-title">
+          <span class="num">04</span>
+          <h3>Soft Skills</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <span class="skill-name">Communication</span>
+            <span class="skill-note">Clear reporting</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Critical Thinking</span>
+            <span class="skill-note">Hypothesis-driven analysis </span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Collaboration</span>
+            <span class="skill-note">Working with cross-functional teams </span>
+          </div>
+        </div>
+      </div>
+
+       <div class="skill-block reveal">
+        <div class="skill-block-title">
+          <span class="num">05</span>
+          <h3>Languages</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <span class="skill-name">Spanish</span>
+            <span class="skill-note">Native</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">English</span>
+            <span class="skill-note">Nivel Intermediate</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">French</span>
+            <span class="skill-note">Nivel Intermediate</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="contact-strip reveal">
+      <h2>¿Trabajamos<br><em>juntos?</em></h2>
+      <a href="mailto:tu@email.com" class="contact-link">Escríbeme</a>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <small>© 2026 Rosse ✨</small>
+  <div class="footer-links">
+    <a href="mailto:rosmerymarcas@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/rossemarcas" target="_blank">LinkedIn</a>
+    <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

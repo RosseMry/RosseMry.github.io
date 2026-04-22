@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Rosse Mary</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-home">Rosse Mary</a>
+  <ul>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="skills.html">Skills</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="about">
+
+    <aside class="about-sidebar reveal">
+      <span class="label">01</span>
+      <h2 class="page-title">About<br><em>me.</em></h2>
+
+      <div class="sidebar-meta">
+        <div class="meta-block">
+          <h4>Location</h4>
+          <p>Paris, France</p>
+        </div>
+        <div class="meta-block">
+          <h4>Availability</h4>
+          <p>Available from August 2026</p>
+        </div>
+        <div class="meta-block">
+          <h4>Contact</h4>
+          <a href="mailto:rosmerymarcas@gmail.com">rosmerymarcas@gmail.com</a>
+        </div>
+        <div class="meta-block">
+          <h4>LinkedIn</h4>
+          <a href="https://www.linkedin.com/in/rossemarcas" target="_blank">in/rossemarcas</a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="about-body">
+
+      <p class="reveal">
+        Hi, I’m <em>Rosse Mary Marcas</em>, a junior Data Analyst interested in Business Intelligence.
+      </p>
+      <p class="reveal">
+        I’m currently learning and developing my skills in SQL, Python, and Power BI, with a focus on data analysis and dashboard creation. I enjoy working with data, especially when it helps make things clearer and easier to understand
+      </p>
+      <p class="reveal">
+        I’m still at the beginning of my journey, but I’m curious and motivated to keep improving, both technically and from a business perspective.
+      </p><p class="reveal">
+        I’m particularly interested in industries like beauty, fashion, and lifestyle, where data can help better understand customer behavior and trends.
+      </p>
+
+      <blockquote class="reveal">
+       “Data doesn’t speak by itself — it needs the right questions to reveal its value.”
+      </blockquote>
+
+      <p class="reveal">
+        I’m looking for an opportunity where I can learn, contribute, and grow as a
+        <em>Data Analyst</em>, in a supportive team.
+      </p>
+
+      <div class="chip-group reveal">
+        <h4>Tools &amp; Technologies</h4>
+        <div class="chips">
+          <span class="chip">SQL</span>
+          <span class="chip">Python</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">Git</span>
+          <span class="chip">Storytelling</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <small>© 2026 Rosse ✨</small>
+  <div class="footer-links">
+    <a href="mailto:rosmerymarcas@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/rossemarcas" target="_blank">LinkedIn</a>
+    <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = '0.05s';
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
