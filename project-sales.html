@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sales Performance Dashboard — Rosse Mary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant:ital,wght@0,300;0,400;1,300&display=swap');
+
+:root {
+  --white: #faf9f7;
+  --black: #111110;
+  --mid:   #6a6860;
+  --rule:  rgba(17,17,16,0.12);
+  --accent:#1a1916;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: 'EB Garamond', 'Times New Roman', serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.6rem 4rem;
+  background: rgba(250,249,247,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-home {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--black);
+  text-decoration: none;
+  font-style: italic;
+}
+nav ul { list-style: none; display: flex; gap: 2.5rem; }
+nav a {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+nav a:hover, nav a.active { color: var(--black); }
+
+/* ── MAIN ── */
+main { flex: 1; padding-top: 5rem; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+footer small {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.footer-links a:hover { color: var(--black); }
+
+/* ── TYPE ── */
+h1 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.2;
+}
+h3 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+h4 {
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mid);
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+}
+p { color: var(--mid); font-size: 1rem; }
+em { font-style: italic; color: var(--black); }
+
+.label {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mid);
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ══════════════════════════════
+   PROJECT PAGE
+══════════════════════════════ */
+
+/* ── HEADER ── */
+.project-header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 4rem 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  margin-bottom: 3rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--black); }
+.back-link::before { content: '←'; font-size: 0.9rem; }
+
+.project-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.project-title-block { flex: 1; }
+
+.project-title-block .label { margin-bottom: 0.8rem; }
+
+.project-title-block h1 { margin-bottom: 1rem; }
+
+.project-title-block h1 em { font-style: italic; }
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+}
+
+.tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 0.25rem 0.9rem;
+  border: 1px solid var(--rule);
+  transition: border-color 0.2s, color 0.2s;
+}
+.tag:hover { border-color: var(--black); color: var(--black); }
+
+.project-summary {
+  max-width: 380px;
+  align-self: flex-end;
+  padding-bottom: 0.4rem;
+}
+.project-summary p {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--mid);
+}
+
+/* ── IMAGES ── */
+.project-images {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.project-img-wrap {
+  overflow: hidden;
+  background: rgba(17,17,16,0.04);
+}
+
+.project-img-wrap.tall {
+  grid-row: span 1;
+}
+
+.project-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.3, 1);
+  min-height: 320px;
+}
+
+.project-img-wrap:hover img { transform: scale(1.04); }
+
+/* placeholder when no image */
+.img-placeholder {
+  width: 100%;
+  min-height: 320px;
+  background: rgba(17,17,16,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ── BODY ── */
+.project-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 4rem 8rem;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 8rem;
+  align-items: start;
+}
+
+/* sidebar */
+.project-sidebar {
+  position: sticky;
+  top: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.sidebar-block h4 { margin-bottom: 0.6rem; }
+
+.sidebar-block p, .sidebar-block a {
+  font-size: 0.9rem;
+  color: var(--mid);
+  text-decoration: none;
+  line-height: 1.7;
+  transition: color 0.2s;
+}
+.sidebar-block a:hover { color: var(--black); }
+
+.sidebar-block ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.sidebar-block ul li {
+  font-size: 0.9rem;
+  color: var(--mid);
+  padding-left: 1rem;
+  position: relative;
+}
+.sidebar-block ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--rule);
+}
+
+/* main content */
+.project-content { padding-top: 0.3rem; }
+
+.project-content h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+}
+.project-content h2:first-child { margin-top: 0; }
+
+.project-content p {
+  font-size: 1rem;
+  color: var(--mid);
+  line-height: 1.9;
+  margin-bottom: 1.4rem;
+  max-width: 580px;
+}
+
+.project-content p em { color: var(--black); font-style: italic; }
+
+.project-content blockquote {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--black);
+  border-left: 1px solid var(--black);
+  padding-left: 1.5rem;
+  margin: 2.5rem 0;
+  line-height: 1.5;
+  max-width: 520px;
+}
+
+/* insight cards */
+.insights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin: 2.5rem 0;
+  max-width: 580px;
+}
+
+.insight-card {
+  background: var(--white);
+  padding: 1.5rem;
+}
+
+.insight-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.insight-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* divider */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--rule);
+  margin: 2.5rem 0;
+}
+
+/* ── NEXT PROJECT ── */
+.next-project {
+  border-top: 1px solid var(--rule);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.next-project .label { margin-bottom: 0.4rem; }
+
+.next-link {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--black);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: opacity 0.25s;
+}
+.next-link:hover { opacity: 0.5; }
+.next-link::after { content: '→'; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.5rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  .project-header { padding: 4rem 1.5rem 2rem; }
+  .project-meta-top { flex-direction: column; align-items: flex-start; }
+  .project-summary { max-width: 100%; }
+  .project-images { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+  .project-body { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem 5rem; }
+  .project-sidebar { position: static; }
+  .insights { grid-template-columns: 1fr 1fr; }
+  .next-project { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-home">Rosse Mary</a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="skills.html">Skills</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HEADER -->
+  <section class="project-header">
+    <a href="work.html" class="back-link reveal">Work</a>
+
+    <div class="project-meta-top">
+      <div class="project-title-block reveal">
+        <span class="label">Business Intelligence · 2024</span>
+        <h1>Sales Performance<br><em>Dashboard</em></h1>
+        <div class="project-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">DAX</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Data Modeling</span>
+        </div>
+      </div>
+
+      <div class="project-summary reveal">
+        <p>An interactive dashboard analyzing commercial performance across manufacturers, products and markets — designed to turn raw sales data into strategic business decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGES -->
+  <div class="project-images reveal">
+    <div class="project-img-wrap">
+      <!-- Replace src with your actual dashboard screenshot -->
+      <div class="img-placeholder">Dashboard · Main View</div>
+    </div>
+    <div class="project-img-wrap">
+      <!-- Replace src with your second screenshot -->
+      <div class="img-placeholder">Dashboard · Analysis View</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="project-body">
+
+    <!-- SIDEBAR -->
+    <aside class="project-sidebar reveal">
+
+      <div class="sidebar-block">
+        <h4>Role</h4>
+        <p>Data Analyst<br>BI Developer</p>
+      </div>
+
+      <div class="sidebar-block">
+        <h4>Tools</h4>
+        <ul>
+          <li>Power BI</li>
+          <li>DAX</li>
+          <li>SQL Server</li>
+          <li>Power Query</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-block">
+        <h4>Data</h4>
+        <p>Open source dataset<br>(Kaggle)</p>
+      </div>
+
+      <div class="sidebar-block">
+        <h4>Year</h4>
+        <p>2024</p>
+      </div>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="project-content reveal">
+
+      <h2>Overview</h2>
+      <p>
+        This dashboard was built to answer a core business question: <em>where are sales growing, and where are they declining?</em> Using an open source dataset simulating a multi-manufacturer retail environment, I designed a reporting tool that gives a complete view of commercial performance at a glance.
+      </p>
+
+      <blockquote>
+        "Turning a flat spreadsheet into a decision-making tool — that's the real work of BI."
+      </blockquote>
+
+      <div class="insights">
+        <div class="insight-card">
+          <div class="insight-num">14</div>
+          <div class="insight-label">Manufacturers tracked</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-num">2,400+</div>
+          <div class="insight-label">Products analyzed</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-num">4</div>
+          <div class="insight-label">Interactive filters</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-num">3</div>
+          <div class="insight-label">Dashboard pages</div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <h2>What it does</h2>
+      <p>
+        The dashboard is structured around three layers of analysis. The <em>main view</em> gives an executive summary — total revenue, product count, and manufacturer breakdown at a glance. The <em>trend view</em> compares current month performance against the previous month using DAX time intelligence functions, making it easy to spot seasonal patterns. The <em>competitive view</em> uses a treemap to visualize market share by manufacturer.
+      </p>
+      <p>
+        All visuals are connected through dynamic filters by country, manufacturer, product, and date range — so any team member can slice the data to answer their specific question without touching the underlying model.
+      </p>
+
+      <div class="section-divider"></div>
+
+      <h2>Key insight</h2>
+      <p>
+        Analyzing monthly trends revealed that <em>May consistently outperforms all other months</em> — a pattern that becomes visible only when looking at multi-year aggregated data. This kind of insight is invisible in raw spreadsheets but immediately clear in a well-structured BI report.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- NEXT PROJECT -->
+  <div class="next-project reveal">
+    <div>
+      <span class="label">Next project</span>
+      <a href="work.html" class="next-link">DataInsight AI</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <small>© 2026 Rosse ✨</small>
+  <div class="footer-links">
+    <a href="mailto:rosmerymarcas@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/rossemarcas" target="_blank">LinkedIn</a>
+    <a href="https://github.com/RosseMry" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  // reveal on load
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = i * 0.1 + 's';
+    setTimeout(() => el.classList.add('visible'), 80 + i * 100);
+  });
+</script>
+
+</body>
+</html>

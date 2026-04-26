@@ -633,3 +633,25 @@ em { font-style: italic; color: var(--black); }
 .hero-squares span:hover img {
   transform: scale(1.12);
 }
+
+/* ------- SQUARE IMAGE INDEX ----------- */
+.square-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.square-label {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-align: center;
+  transition: color 0.25s;
+}
+
+.square-link:hover .square-label {
+  color: var(--black);
+}
