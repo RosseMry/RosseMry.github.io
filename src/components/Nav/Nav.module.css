@@ -1,0 +1,127 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-4);
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--petal-purple);
+}
+
+.tagline {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  letter-spacing: normal;
+}
+
+@media (max-width: 640px) {
+  .tagline {
+    display: none;
+  }
+}
+
+.links {
+  display: flex;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links a {
+  position: relative;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+  padding-block: var(--space-2);
+  transition: color var(--dur-hover) var(--ease-soft);
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0.1rem;
+  left: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--petal-purple-deep);
+  transform: translateX(-50%) scale(0);
+  transition: transform var(--dur-hover) var(--ease-soft);
+}
+
+.links a:hover,
+.links a:focus-visible {
+  color: var(--color-ink);
+}
+
+.links a:hover::after,
+.links a:focus-visible::after {
+  transform: translateX(-50%) scale(1);
+}
+
+.toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: var(--space-2);
+}
+
+.toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-ink);
+  margin: 5px 0;
+  transition: transform var(--dur-hover) var(--ease-soft), opacity var(--dur-hover) var(--ease-soft);
+}
+
+.mobilePanel {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .links {
+    display: none;
+  }
+
+  .toggle {
+    display: block;
+  }
+
+  .mobilePanel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-bottom: var(--space-5);
+  }
+
+  .mobilePanel a {
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: var(--fs-body);
+    color: var(--color-ink);
+    padding: var(--space-2) 0;
+  }
+}

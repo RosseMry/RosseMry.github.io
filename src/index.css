@@ -1,0 +1,8 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/outfit';
+@import '@fontsource-variable/fredoka';
+@import '@fontsource-variable/caveat';
+@import '@fontsource/pt-serif/700.css';
+
+@import './styles/tokens.css';
+@import './styles/global.css';

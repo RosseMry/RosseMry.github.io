@@ -1,0 +1,543 @@
+.section {
+  position: relative;
+  padding-block: var(--space-7);
+}
+
+.wideContainer {
+  max-width: 86rem;
+}
+
+.sideFlowers {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sideFlowers svg {
+  position: absolute;
+  opacity: 0.9;
+}
+
+/* ---- intro band: its own horizontal strip holding the decorative flowers/lines + heading copy ---- */
+.introBand {
+  position: relative;
+  padding-block: var(--space-5) var(--space-3);
+}
+
+.deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* A flower's petals+center — spins on click, like the site's Flower component. */
+.bloom {
+  cursor: pointer;
+  pointer-events: auto;
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: transform var(--dur-hover) var(--ease-soft);
+}
+
+.bloom:hover,
+.bloom:focus-visible {
+  transform: scale(1.08);
+  outline: none;
+}
+
+.bloom.spinning {
+  animation: workBloomSpin var(--dur-click) var(--ease-soft);
+}
+
+@keyframes workBloomSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  60% {
+    transform: rotate(360deg) scale(1.15);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloom.spinning {
+    animation: none;
+  }
+}
+
+.introRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.introRow > div:first-child {
+  flex-shrink: 0;
+  text-align: left;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--petal-purple-deep);
+}
+
+.eyebrowDot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--petal-purple-deep);
+}
+
+.heading {
+  font-family: var(--font-hero);
+  font-weight: 600;
+  font-size: 4.6rem;
+  line-height: 1.15;
+  margin: var(--space-2) 0 0;
+  text-align: left;
+}
+
+.lead {
+  text-align: left;
+  color: var(--color-ink-soft);
+  max-width: 42ch;
+  margin: var(--space-3) auto 0 0;
+}
+
+.note {
+  flex-shrink: 0;
+  align-self: center;
+  margin: -2cm 0 0 4cm;
+  font-family: var(--font-hand);
+  font-size: 1.7rem;
+  line-height: 1.25;
+  color: var(--petal-purple);
+  transform: rotate(-20deg);
+}
+
+/* The intro flowers/lines and the extra side flowers were tuned for a wide desktop layout
+   (fixed cm offsets, XL sizes) — scale them down with `zoom` (doesn't fight the inline
+   `transform` each already uses for positioning) instead of trying to reposition every one. */
+@media (max-width: 900px) {
+  .introDeco svg,
+  .sideFlowersExtra svg,
+  .edgeFlowerL {
+    zoom: 0.62;
+  }
+
+  .introRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .note {
+    margin: var(--space-3) 0 0;
+    transform: rotate(-8deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .introDeco svg,
+  .edgeFlowerL {
+    zoom: 0.4;
+  }
+
+  .hideOnPhone,
+  .note,
+  .sideFlowersExtra {
+    display: none;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+}
+
+.filters {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.filterPill {
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--color-card);
+  color: var(--petal-purple);
+  cursor: pointer;
+  box-shadow: 0 4px 14px -8px rgba(47, 37, 54, 0.25);
+  transition: transform var(--dur-hover) var(--ease-soft), background var(--dur-hover) var(--ease-soft), color var(--dur-hover) var(--ease-soft);
+}
+
+.filterPill:hover {
+  transform: translateY(-2px);
+}
+
+.filterActive {
+  background: var(--petal-purple);
+  color: #ffffff;
+}
+
+.list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: var(--space-7) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: center;
+  background: var(--color-card);
+  border: 3px solid transparent;
+  border-radius: 1.5rem;
+  padding: var(--space-7);
+  box-shadow: 0 10px 26px -20px rgba(47, 37, 54, 0.22);
+}
+
+.row.reverse {
+  gap: var(--space-3);
+  padding-left: calc(var(--space-7) + var(--space-4));
+}
+
+.row.reverse .visual {
+  order: 2;
+}
+
+@media (max-width: 780px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .row.reverse .visual {
+    order: 0;
+  }
+}
+
+.accent-purple {
+  background: #f9f3f7;
+  border-color: #eee6f5;
+}
+
+.accent-peach {
+  background: #fef5ef;
+  border-color: #feeae2;
+}
+
+.accent-cornflower {
+  background: #f6f6f9;
+  border-color: #e1e7f8;
+}
+
+.accent-pink {
+  background: #fef8ef;
+  border-color: #fef4e6;
+}
+
+.edgeFlowerL {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, calc(-50% - 3cm));
+  z-index: 2;
+}
+
+.cardEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.cardEyebrow .dot {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+}
+
+.accent-purple .cardEyebrow {
+  color: var(--petal-purple-deep);
+}
+
+.accent-purple .cardEyebrow .dot {
+  background: var(--petal-purple-deep);
+}
+
+.accent-peach .cardEyebrow {
+  color: var(--petal-orange-deep);
+}
+
+.accent-peach .cardEyebrow .dot {
+  background: var(--petal-orange-deep);
+}
+
+.accent-cornflower .cardEyebrow {
+  color: var(--petal-cornflower-deep);
+}
+
+.accent-cornflower .cardEyebrow .dot {
+  background: var(--petal-cornflower-deep);
+}
+
+.accent-pink .cardEyebrow {
+  color: var(--petal-yellow-deep);
+}
+
+.accent-pink .cardEyebrow .dot {
+  background: var(--petal-yellow-deep);
+}
+
+.githubLink {
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform var(--dur-hover) var(--ease-soft);
+}
+
+.githubLink:hover {
+  transform: translateX(2px);
+}
+
+.accent-purple .githubLink {
+  color: var(--petal-purple-deep);
+}
+
+.accent-peach .githubLink {
+  color: var(--petal-orange-deep);
+}
+
+.accent-cornflower .githubLink {
+  color: var(--petal-cornflower-deep);
+}
+
+.accent-pink .githubLink {
+  color: var(--petal-yellow-deep);
+}
+
+.accent-purple .visual {
+  box-shadow: 0 10px 22px -8px color-mix(in srgb, var(--petal-purple-deep) 55%, transparent);
+}
+
+.accent-peach .visual {
+  box-shadow: 0 10px 22px -8px color-mix(in srgb, var(--petal-peach-deep) 55%, transparent);
+}
+
+.accent-cornflower .visual {
+  box-shadow: 0 10px 22px -8px color-mix(in srgb, var(--petal-cornflower-deep) 55%, transparent);
+}
+
+.accent-pink .visual {
+  box-shadow: 0 10px 22px -8px color-mix(in srgb, var(--petal-yellow-deep) 45%, transparent);
+}
+
+.visual {
+  height: 21.5rem;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: var(--space-4);
+}
+
+.visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.visual.lr img {
+  filter: hue-rotate(55deg) saturate(0.85) brightness(1.05);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-md);
+  margin: 0;
+}
+
+.category {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+}
+
+.description {
+  color: var(--color-ink-soft);
+  font-size: var(--fs-body);
+  text-align: justify;
+  margin: 0;
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tech li {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+}
+
+.tech li[data-tech='python'] {
+  background: color-mix(in srgb, var(--petal-blue) 40%, transparent);
+  color: var(--petal-blue-deep);
+}
+
+.tech li[data-tech='scikit-learn'] {
+  background: color-mix(in srgb, var(--petal-orange) 40%, transparent);
+  color: var(--petal-orange-deep);
+}
+
+.tech li[data-tech='machine-learning'] {
+  background: color-mix(in srgb, var(--petal-peach) 40%, transparent);
+  color: var(--petal-peach-deep);
+}
+
+.tech li[data-tech='numpy'] {
+  background: color-mix(in srgb, var(--petal-cornflower) 40%, transparent);
+  color: var(--petal-cornflower-deep);
+}
+
+.tech li[data-tech='pandas'] {
+  background: color-mix(in srgb, var(--petal-purple) 40%, transparent);
+  color: var(--petal-purple-deep);
+}
+
+.tech li[data-tech='sql'] {
+  background: color-mix(in srgb, var(--petal-yellow) 40%, transparent);
+  color: var(--petal-yellow-deep);
+}
+
+.tech li[data-tech='statistics'] {
+  background: color-mix(in srgb, var(--petal-pink) 40%, transparent);
+  color: var(--petal-pink-deep);
+}
+
+.tech li[data-tech='visualization'] {
+  background: color-mix(in srgb, var(--petal-peach) 40%, transparent);
+  color: var(--petal-orange-deep);
+}
+
+.comingSoon {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  border: 2.5px dashed #ead9e6;
+  border-radius: 1.5rem;
+  background: #faf6f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.comingSoonFlower {
+  flex-shrink: 0;
+}
+
+.comingSoonHeading {
+  flex-shrink: 0;
+  margin: 0;
+  font-family: var(--font-hand);
+  font-size: 1.7rem;
+  line-height: 1.25;
+  color: var(--ink-purple);
+  transform: rotate(-6deg);
+}
+
+.comingSoonSub {
+  flex: 1;
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  color: var(--color-ink-soft);
+  text-align: center;
+}
+
+.comingSoonDaisyWrap {
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--petal-purple-deep) 55%, transparent))
+    drop-shadow(0 8px 14px color-mix(in srgb, var(--petal-purple-deep) 45%, transparent));
+}
+
+@media (max-width: 640px) {
+  .comingSoon {
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: var(--space-2);
+    padding: var(--space-4);
+  }
+
+  .comingSoonFlower {
+    zoom: 0.55;
+  }
+
+  .comingSoonHeading {
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+
+  .comingSoonSub {
+    display: none;
+  }
+
+  .comingSoonDaisyWrap {
+    zoom: 0.6;
+  }
+}

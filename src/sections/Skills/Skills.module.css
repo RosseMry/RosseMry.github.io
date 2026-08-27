@@ -1,0 +1,43 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+
+.chip {
+  --chip-hex: var(--color-ink-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 6.5rem;
+  padding: var(--space-4) var(--space-2);
+  border-radius: 1.25rem;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-line);
+  transition: transform var(--dur-hover) var(--ease-soft), border-color var(--dur-hover) var(--ease-soft);
+}
+
+.chip:hover {
+  transform: translateY(-4px);
+  border-color: var(--chip-hex);
+}
+
+.chip svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--color-ink-soft);
+  transition: fill var(--dur-hover) var(--ease-soft);
+}
+
+.chip:hover svg {
+  fill: var(--chip-hex);
+}
+
+.label {
+  font-size: var(--fs-sm);
+  color: var(--color-ink-soft);
+  text-align: center;
+}

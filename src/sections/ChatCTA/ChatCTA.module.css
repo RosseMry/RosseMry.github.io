@@ -1,0 +1,29 @@
+.inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.lead {
+  color: var(--color-ink-soft);
+}
+
+.button {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-bg);
+  background: var(--color-accent);
+  padding: var(--space-3) var(--space-6);
+  border-radius: 999px;
+  transition: transform var(--dur-hover) var(--ease-soft), background var(--dur-hover) var(--ease-soft);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--color-accent) 85%, black);
+}

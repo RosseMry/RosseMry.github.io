@@ -1,0 +1,94 @@
+.wrapper {
+  display: inline-block;
+  line-height: 0;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.wrapper.interactive {
+  cursor: pointer;
+}
+
+.wrapper.interactive:hover,
+.wrapper.interactive:focus-visible {
+  transform: scale(1.1) rotate(var(--flower-hover-rot, 10deg));
+  transition: transform var(--dur-hover) var(--ease-soft);
+}
+
+/* Garden flowers spin fully on hover (via .spinning) instead of tilting. */
+.wrapper.interactive.noTilt:hover,
+.wrapper.interactive.noTilt:focus-visible {
+  transform: none;
+}
+
+.wrapper.interactive {
+  transition: transform var(--dur-hover) var(--ease-soft);
+}
+
+.wrapper.spinning {
+  animation: flower-spin-bounce var(--dur-click) var(--ease-soft);
+}
+
+.float {
+  animation: flower-float var(--flower-dur, 8s) ease-in-out infinite;
+  animation-delay: var(--flower-delay, 0s);
+}
+
+.sway {
+  animation: flower-sway var(--flower-dur, 10s) ease-in-out infinite;
+  animation-delay: var(--flower-delay, 0s);
+}
+
+.spinSlow {
+  animation: flower-spin-slow var(--flower-dur, 24s) linear infinite;
+  animation-delay: var(--flower-delay, 0s);
+}
+
+@keyframes flower-spin-bounce {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  60% {
+    transform: rotate(360deg) scale(1.18);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes flower-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--flower-base-rot, 0deg)) scale(1);
+  }
+  50% {
+    transform: translateY(-9px) rotate(calc(var(--flower-base-rot, 0deg) + 3deg)) scale(1.025);
+  }
+}
+
+@keyframes flower-sway {
+  0%,
+  100% {
+    transform: translateX(0) rotate(var(--flower-base-rot, 0deg)) scale(1);
+  }
+  50% {
+    transform: translateX(7px) rotate(calc(var(--flower-base-rot, 0deg) - 3deg)) scale(0.98);
+  }
+}
+
+@keyframes flower-spin-slow {
+  from {
+    transform: rotate(var(--flower-base-rot, 0deg));
+  }
+  to {
+    transform: rotate(calc(var(--flower-base-rot, 0deg) + 360deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float,
+  .sway,
+  .spinSlow {
+    animation: none;
+  }
+}

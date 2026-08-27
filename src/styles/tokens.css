@@ -1,0 +1,77 @@
+:root {
+  /* ---- Color system ---- */
+  --color-bg: #fefaf5;
+  --color-bg-alt: #ffffff;
+  --color-card: #fffdfe;
+  --color-ink: #2f2536;
+  --color-ink-soft: #6b5f6f;
+  --color-line: #fefaf5;
+
+  /* Petal palette */
+  --petal-purple: #c9b6e4;
+  --petal-purple-deep: #a78bfa;
+  --petal-blue: #b9ddf1;
+  --petal-blue-deep: #7fb7e0;
+  --petal-peach: #f6c6c0;
+  --petal-peach-deep: #f2a6b0;
+  --petal-yellow: #f7de8b;
+  --petal-yellow-deep: #f0c33b;
+  --petal-orange: #f3b27a;
+  --petal-orange-deep: #ef8354;
+  --petal-cornflower: #a3b8f2;
+  --petal-cornflower-deep: #5f7ce8;
+  --petal-pink: #f7b8d6;
+  --petal-pink-deep: #ec74b0;
+
+  /* Text-safe variants of the petal hues (WCAG AA, >=4.5:1 on --color-bg/--color-bg-alt) */
+  --ink-purple: #6d4fc4;
+  --ink-blue: #236a9c;
+  --ink-peach: #9c414e;
+  --ink-yellow: #7a5a0a;
+  --ink-orange: #a54e26;
+
+  --color-accent: var(--ink-purple);
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* ---- Layout ---- */
+  --content-max: 72rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* ---- Typography ---- */
+  --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit Variable', 'Outfit', system-ui, sans-serif;
+  --font-hero: 'Fredoka Variable', 'Fredoka', system-ui, sans-serif;
+  --font-hand: 'Caveat Variable', 'Caveat', cursive;
+
+  --fs-sm: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  --fs-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --fs-md: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
+  --fs-lg: clamp(1.8rem, 1.5rem + 1.2vw, 2.6rem);
+  --fs-xl: clamp(2.6rem, 2rem + 2.4vw, 4.2rem);
+  --fs-hero: clamp(2.8rem, 2rem + 4.5vw, 5.5rem);
+
+  /* ---- Motion ---- */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-hover: 300ms;
+  --dur-click: 650ms;
+
+  color-scheme: light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-hover: 1ms;
+    --dur-click: 1ms;
+  }
+}

@@ -1,0 +1,78 @@
+.grid {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  margin-top: var(--space-6);
+}
+
+.photoFrame {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  background: linear-gradient(160deg, var(--petal-purple) 0%, var(--petal-peach) 50%, var(--petal-yellow) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-inline: auto;
+}
+
+.photoFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bouquet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  max-width: 42rem;
+}
+
+.eyebrow {
+  font-size: var(--fs-md);
+}
+
+.bio p {
+  margin-top: var(--space-4);
+  color: var(--color-ink-soft);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+}
+
+.badges li {
+  font-size: var(--fs-sm);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  color: var(--color-ink-soft);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .content {
+    margin-inline: auto;
+  }
+
+  .badges {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,22 @@
+.heading {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.number {
+  color: var(--color-ink-soft);
+  font-weight: 500;
+}
+
+.wrap {
+  text-align: center;
+}
+
+.wrap.left {
+  text-align: left;
+}
