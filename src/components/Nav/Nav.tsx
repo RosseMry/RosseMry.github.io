@@ -7,7 +7,7 @@ import styles from './Nav.module.css';
 // an absolute `${BASENAME}/#id` so they still land in the right spot when
 // clicked from the Work page, not just from Home itself.
 const LINKS = [
-  { href: `${BASENAME}/#home`, label: 'Home' },
+  { href: `${BASENAME}/#home`, label: 'Home' }, 
   { href: `${BASENAME}/#work`, label: 'Projects' },
   { href: `${BASENAME}/#about`, label: 'About' },
   { href: `${BASENAME}/#contact`, label: 'Contact' },
