@@ -4,4 +4,4 @@
  * '/cv' below (and public/404.html's pathSegmentsToKeep) if the repo is ever
  * renamed or moved to a custom domain/user page.
  */
-export const BASENAME = import.meta.env.PROD ? '/cv' : '';
+export const BASENAME = import.meta.env.PROD ? './' : '';
