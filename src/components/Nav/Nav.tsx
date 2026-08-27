@@ -8,7 +8,7 @@ import styles from './Nav.module.css';
 // clicked from the Work page, not just from Home itself.
 const LINKS = [
   { href: `${BASENAME}/#home`, label: 'Home' },
-  { href: `${BASENAME}/#projects`, label: 'Projects' },
+  { href: `${BASENAME}/#work`, label: 'Projects' },
   { href: `${BASENAME}/#about`, label: 'About' },
   { href: `${BASENAME}/#contact`, label: 'Contact' },
 ] as const;
