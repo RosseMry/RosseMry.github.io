@@ -7,7 +7,7 @@ import styles from './Nav.module.css';
 // an absolute `${BASENAME}/#id` so they still land in the right spot when
 // clicked from the Work page, not just from Home itself.
 const LINKS = [
-  { href: `${BASENAME}/#home`, label: 'Home' }, 
+  { href: `${BASENAME}/#home`, label: 'Home' },
   { to: '/work', label: 'Work' },
   { href: `${BASENAME}/#about`, label: 'About' },
   { href: `${BASENAME}/#contact`, label: 'Contact' },
@@ -25,12 +25,10 @@ export function Nav() {
 
         <ul className={styles.links}>
           {LINKS.map((link) => (
-            <li key={link.label}>{'to' in link ? <Link to=
-            {link.to}>{link.label}</Link> : <a href={link.
-            href}>{link.label}</a>}</li>
+            <li key={link.label}>{'to' in link ? <Link to={link.to}>{link.label}</Link> : <a href={link.href}>{link.label}</a>}</li>
           ))}
         </ul>
-        
+
         <button
           className={styles.toggle}
           aria-label={open ? 'Close menu' : 'Open menu'}
