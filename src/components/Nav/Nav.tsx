@@ -23,12 +23,6 @@ export function Nav() {
           RM
         </a>
 
-        <ul className={styles.links}>
-          {LINKS.map((link) => (
-            <li key={link.label}>{'to' in link ? <Link to={link.to}>{link.label}</Link> : <a href={link.href}>{link.label}</a>}</li>
-          ))}
-        </ul>
-
         <button
           className={styles.toggle}
           aria-label={open ? 'Close menu' : 'Open menu'}
