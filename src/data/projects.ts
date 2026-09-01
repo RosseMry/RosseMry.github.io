@@ -25,7 +25,7 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
-  {
+ /* {
     name: 'DSLR',
     category: 'Multiclass Classification',
     tech: ['Python', 'Machine Learning'],
@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
     image: 'dslr',
     accent: 'purple',
     filterGroup: 'Machine Learning',
-  },
+  },*/
   {
     name: 'ft_linear_regression',
     category: 'Linear Regression',
