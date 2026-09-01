@@ -5,6 +5,7 @@ import dslrImage from '../../assets/projects/dslr.webp';
 import linearRegressionImage from '../../assets/projects/linear-regression.png';
 import piscineImage from '../../assets/projects/piscine.png';
 import ecommerceImage from '../../assets/projects/ecommerce.png';
+import ecommerce2Image from '../../assets/projects/ecommerce2.jpg';
 import styles from './Projects.module.css';
 
 const IMAGES: Record<Project['image'], string> = {

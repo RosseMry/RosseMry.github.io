@@ -18,14 +18,14 @@ export interface Project {
   description: string;
   /** Omitted when the repo isn't public yet. */
   link?: string;
-  image: 'dslr' | 'linearRegression' | 'piscine' | 'ecommerce';
+  image: 'dslr' | 'linearRegression' | 'piscine' | 'ecommerce'| 'ecommerce2';
   /** Which petal color the project's corner flower and cute underline pick up. */
   accent: ProjectAccent;
   filterGroup: ProjectFilterGroup;
 }
 
 export const PROJECTS: Project[] = [
-  {
+  /*{
     name: 'DSLR',
     category: 'Multiclass Classification',
     tech: ['Python', 'Machine Learning'],
@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
     image: 'dslr',
     accent: 'purple',
     filterGroup: 'Machine Learning',
-  },
+  },*/
   {
     name: 'ft_linear_regression',
     category: 'Linear Regression',
@@ -63,6 +63,16 @@ export const PROJECTS: Project[] = [
     link: 'https://github.com/RosseMry/E-commerce-Sales-Data',
     image: 'ecommerce',
     accent: 'pink',
+    filterGroup: 'Analytics',
+  },
+   {
+    name: 'E-commerce Transaction Data',
+    category: 'Data Analysis',
+    tech: ['Python', 'PowerBI', 'Visualization'],
+    description: 'Identifying top-selling products and categories to improve sales strategies',
+    link: 'https://github.com/RosseMry/E-commerce-Sales-Transactions-Dataset',
+    image: 'ecommerce2',
+    accent: 'purple',
     filterGroup: 'Analytics',
   },
 ];

@@ -142,6 +142,11 @@
   color: var(--petal-blue-deep);
 }
 
+.tech li[data-tech='powerbi'] {
+  background: color-mix(in srgb, var(--petal-yellow) 40%, transparent);
+  color: var(--petal-yellow-deep);
+}
+
 .tech li[data-tech='scikit-learn'] {
   background: color-mix(in srgb, var(--petal-orange) 40%, transparent);
   color: var(--petal-orange-deep);
