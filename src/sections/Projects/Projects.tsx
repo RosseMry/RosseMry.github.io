@@ -12,6 +12,7 @@ const IMAGES: Record<Project['image'], string> = {
   linearRegression: linearRegressionImage,
   piscine: piscineImage,
   ecommerce: ecommerceImage,
+  ecommerce2: ecommerce2Image,
 };
 
 /** Heroicons "rocket-launch" — inline so the site never pulls in the whole icon package for one glyph. */
